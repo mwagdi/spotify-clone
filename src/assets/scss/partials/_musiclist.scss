@@ -1,0 +1,35 @@
+.musiclist{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1em;
+    &__item{
+        width: calc(100% / 3);
+        padding: 1em;
+        box-sizing: border-box;
+        &_image{
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-top: 100%;
+        }
+        &_content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(6, 26, 35, 0.72);
+            color: $offwhite;
+            padding: 1em;
+            opacity: 0;
+            transition: all 0.5s;
+            &:hover{
+                opacity: 1;
+            }
+        }
+        &_name{
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+    }
+}

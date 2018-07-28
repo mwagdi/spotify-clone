@@ -1,0 +1,21 @@
+.album{
+    display: flex;
+    &__info{
+        width: 300px;
+        text-align: center;
+    }
+    &__tracks{
+        flex-grow: 1;
+        padding: 0 3em;
+    }
+    &__image{
+        max-width: 100%;
+    }
+    &__artists{
+        color: $offwhite;
+        font-weight: 100;
+        a{
+            color: $offwhite;
+        }
+    }
+}

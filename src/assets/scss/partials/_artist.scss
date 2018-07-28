@@ -1,0 +1,43 @@
+.artist{
+    flex-grow: 1;
+    &__name{
+        margin: 0;
+        position: relative;
+    }
+    &__followers{
+        position: relative;
+        font-weight: 100;
+    }
+    &__genres{
+        position: relative;
+        text-transform: uppercase;
+        font-weight: 100;
+        padding: 1em;
+        text-align: center;
+    }
+    &__top{
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 230px;
+        justify-content: space-evenly;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        background-position: center;
+        position: relative;
+        color: $offwhite;
+        &:before{
+            content: '';
+            position: absolute;
+            background: linear-gradient(transparent 0%, rgba(6, 26, 35, 0.75) 50%, $dark 100%);
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+    &__material{
+        padding: 1em;
+        padding-bottom: 150px;
+    }
+}

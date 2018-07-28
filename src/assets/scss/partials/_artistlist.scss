@@ -1,0 +1,35 @@
+.artistlist{
+    display: flex;
+    flex-wrap: wrap;
+    &__item{
+        width: 20%;
+        text-align: center;
+        padding: 10px;
+        h3{
+            color: $light;
+            font-weight: normal;
+            text-decoration: underline;
+        }
+        &_image{
+            background: #484848;
+            position: relative;
+            padding-top: 100%;
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            p{
+                position: absolute;
+                text-align: center;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                height: 1.3em;
+                margin: auto;
+                color: $offwhite;
+                font-weight: 600;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.search{
+    &__input{
+        width: 100%;
+        background: transparent;
+        box-shadow: none;
+        border: 1px solid $offwhite;
+        color: $offwhite;
+        border-radius: 10px;
+        padding: 0.5em;
+        box-sizing: border-box;
+        font-family: $font;
+        font-size: 1.7rem;
+        outline: none;
+    }
+    &__pagination{
+        text-align: center;
+        &_btn{
+            background: $offwhite;
+            color: $dark;
+            padding: 0.5em 1.3em;
+            border-radius: 3px;
+            margin: 5px;
+        }
+    }
+}
