@@ -52,11 +52,13 @@ div {
   width: 75%; }
   @media only screen and (max-width: 768px) {
     .dashboard {
-      width: 100%; } }
+      width: 100%;
+      padding-top: 5em; } }
 
 .sidebar {
   width: 25%;
-  height: 100vh; }
+  height: 100vh;
+  z-index: 1; }
   @media only screen and (max-width: 768px) {
     .sidebar {
       height: auto;
@@ -69,7 +71,9 @@ div {
     @media only screen and (max-width: 768px) {
       .sidebar__container {
         height: auto;
-        width: 100%; } }
+        width: 100%;
+        background: black;
+        border-bottom: 1px solid #00A6FB; } }
   .sidebar__profile {
     display: flex;
     flex-direction: column;
@@ -91,6 +95,33 @@ div {
       .sidebar__avatar {
         height: 50px;
         width: 50px; } }
+  .sidebar__responsive {
+    display: none;
+    align-items: center;
+    padding: 1em;
+    justify-content: space-between; }
+    @media only screen and (max-width: 768px) {
+      .sidebar__responsive {
+        display: flex; } }
+    .sidebar__responsive_left {
+      display: flex;
+      align-items: center;
+      position: relative; }
+  .sidebar__dropdown {
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #00A6FB;
+    width: 100%;
+    top: 134%;
+    display: none; }
+    .sidebar__dropdown .sidebar__link {
+      color: #051923; }
+      .sidebar__dropdown .sidebar__link:visited {
+        color: #051923; }
+    .sidebar__dropdown.opened {
+      display: block; }
   @media only screen and (max-width: 768px) {
     .sidebar__nav--large {
       display: none; } }
@@ -166,6 +197,9 @@ div {
       top: 0;
       bottom: 0;
       margin: auto; }
+
+.open-dropdown {
+  margin-left: 1em; }
 
 .login {
   position: relative;

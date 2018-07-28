@@ -45,10 +45,11 @@ div{
 .sidebar{
     width: 25%;
     height: 100vh;
-    z-index: 1;
+    
     @media only screen and (max-width: 768px) {
         height: auto;
         width: 100%;
+        z-index: 1;
     }
     &__container{
         position: fixed;
