@@ -5,7 +5,8 @@
     &__item{
         display: flex;
         position: relative;
-        padding: 0.2em 0;
+        padding: 0.5em 0;
+        font-weight: $flight;
         &:before{
             content: '';
             position: absolute;

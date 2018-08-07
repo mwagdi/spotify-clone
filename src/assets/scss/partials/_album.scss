@@ -4,6 +4,9 @@
         width: 300px;
         text-align: center;
     }
+    &__title{
+        font-weight: $regular;
+    }
     &__tracks{
         flex-grow: 1;
         padding: 0 3em;

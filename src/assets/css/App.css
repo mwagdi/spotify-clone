@@ -301,7 +301,8 @@ div {
   .tracklist__item {
     display: flex;
     position: relative;
-    padding: 0.2em 0; }
+    padding: 0.5em 0;
+    font-weight: 300; }
     .tracklist__item:before {
       content: '';
       position: absolute;
@@ -432,6 +433,8 @@ div {
   .album__info {
     width: 300px;
     text-align: center; }
+  .album__title {
+    font-weight: 400; }
   .album__tracks {
     flex-grow: 1;
     padding: 0 3em; }

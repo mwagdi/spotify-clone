@@ -104,7 +104,7 @@ class ThePlayer extends Component{
                         </div>}
                 </div>
                 <div className="player__song">
-                    {this.state.track.album.images && 
+                    {this.state.track.album && this.state.track.album.images && 
                         <div className="player__song_thumb" style={{ backgroundImage: `url(${this.state.track.album.images[0].url})` }}></div>}
                     <p className="player__song_info">
                         <span className="player__song_name">{this.state.track.name}</span>
