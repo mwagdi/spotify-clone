@@ -5,6 +5,7 @@
     &__item{
         display: flex;
         position: relative;
+        padding: 0.2em 0;
         &:before{
             content: '';
             position: absolute;
@@ -15,9 +16,9 @@
         }
         &.active{
             &:before{
-                background: #0b364a;
-                filter: blur(9px);
+                background: $light;
             }
+            color: $dark;
         }
         &_name {
             flex: 3;

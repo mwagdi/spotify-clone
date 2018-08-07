@@ -2,9 +2,8 @@ import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
 
-import logo from '../assets/images/music-cd.png';
-import logo2 from '../assets/images/music.png';
-import logo3 from '../assets/images/music2.png';
+import logo from '../assets/images/logo.png';
+
 import { client_id,serialize } from "../constants";
 
 class Login extends Component{
@@ -37,7 +36,7 @@ class Login extends Component{
             <div className="login">
                 <div className="login__container">
                     <div>
-                        <img src={logo2} alt="music icon"/>
+                        <img src={logo} alt="music icon"/>
                     </div>
                     <div className="btn-container">
                         <a onClick={()=>{this.redirectLogin()}} className="btn">Login</a>

@@ -3,6 +3,9 @@ html,body{
     background: $dark;
     font-family: $font;
     margin: 0;
+    @media only screen and (max-width: 450px){
+        font-size: 13px;
+    }
 }
 a{
     cursor: pointer;
@@ -89,6 +92,10 @@ div{
             height: 50px;
             width: 50px;
         }
+        @media only screen and (max-width: 450px){
+            height: 35px;
+            width: 40px;
+        }
     }
     &__responsive{
         display: none;
@@ -113,6 +120,7 @@ div{
         width: 100%;
         top: 134%;
         display: none;
+        min-width: 110px;
         .sidebar__link{
             color: $dark;
             &:visited{
@@ -144,19 +152,24 @@ div{
     }
 }
 .player{
-    background: $darkgrey;
+    background: $dark;
     color: $offwhite;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 150px;
+    height: 100px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    
+    video{
+        display: none;
+    }
     // box-shadow: inset 0px 0px 34px rgba(255, 255, 255, 0.46);
     &__buttons{
-        font-size: 3rem;
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
     }
     &__btn{
         transition: all 0.2s;
@@ -179,14 +192,64 @@ div{
         position: absolute;
         background: $offwhite;
         width: 100%;
+        top: 0;
+        z-index: 1;
+    }
+    &__browse{
+        position: absolute;
+        background: $dark;
+        width: 1px;
+        height: 100%;
+        top: -20px;
+        span{
+            position: absolute;
+            top: -100%;
+            background: $darkgrey;
+            color: white;
+            padding: 1px;
+            left: -20px;
+            right: -20px;
+            text-align: center;
+            &:after{
+                content: "";
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 10px solid $darkgrey;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+        }
     }
     &__played{
-        height: 25px;
+        height: 15px;
         background: $light;
         transition: all 0.2s;
     }
     &__song{
-        margin-top: 35px;
+        padding: 0 1em;
+        display: flex;
+        width: 335px;
+        height: 100%;
+        align-items: center;
+        background: rgba(97, 112, 115, 0.23);
+        position: absolute;
+        font-weight: $flight;
+        &_info{
+            display: flex;
+            flex-direction: column;
+        }
+        &_thumb{
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
     }
     &__volume{
         position: absolute;
@@ -216,6 +279,25 @@ div{
             bottom: 0;
             margin: auto;
         }
+    }
+    @media only screen and (max-width: 1024px) {
+        flex-direction: column;
+        height: 115px;
+        &__played {
+            height: 10px;
+        }
+        &__song {
+            position: static;
+            background: transparent;
+            width: auto;
+            &_thumb {
+                height: 35px;
+                width: 35px;
+            }
+        }
+    }
+    @media only screen and (max-width: 450px){
+        height: 105px;
     }
 }
 .open-dropdown{

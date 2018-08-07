@@ -1,5 +1,6 @@
 .artist{
     flex-grow: 1;
+    width: 75%;
     &__name{
         margin: 0;
         position: relative;
@@ -29,7 +30,7 @@
         &:before{
             content: '';
             position: absolute;
-            background: linear-gradient(transparent 0%, rgba(6, 26, 35, 0.75) 50%, $dark 100%);
+            background: linear-gradient(rgba(15, 15, 15, 0.45) 0%, rgba(15, 15, 15, 0.75) 50%, $dark 100%);
             top: 0;
             bottom: 0;
             left: 0;
@@ -39,5 +40,15 @@
     &__material{
         padding: 1em;
         padding-bottom: 150px;
+    }
+    @media only screen and (max-width: 768px){
+        width: 100%;
+        &__top{
+            height: 525px;
+            justify-content: center;
+        }
+        &__genres{
+            padding: 0;
+        }
     }
 }

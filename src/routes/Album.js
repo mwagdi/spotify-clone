@@ -20,6 +20,7 @@ class Album extends Component{
         axios.get(`${API_URL}albums/${this.props.match.params.id}`)
         .then(response => {
             this.setState({album: response.data});
+            console.log(response.data.images[0])
         });
     }
     
@@ -34,7 +35,7 @@ class Album extends Component{
             <div className="dashboard">
                 <div className="album">
                     <div className="album__info">
-                        {this.state.album.images &&
+                        {this.state.album.images && this.state.album.images.length &&
                         <img src={this.state.album.images[0].url} alt="album cover" className="album__image"/>}
                         <h2 className="album__title">{this.state.album.name}</h2>
                         {this.state.album.artists &&

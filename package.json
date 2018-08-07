@@ -32,6 +32,9 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "create-react-app-sass": "^1.1.0"
+    "create-react-app-sass": "^1.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "react-test-renderer": "^16.4.2"
   }
 }

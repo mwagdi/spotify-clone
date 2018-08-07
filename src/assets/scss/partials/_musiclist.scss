@@ -8,9 +8,10 @@
         box-sizing: border-box;
         &_image{
             position: relative;
+            padding-top: 100%;
+            background: rgba(0,0,0,0.66);
             background-repeat: no-repeat;
             background-size: cover;
-            padding-top: 100%;
         }
         &_content {
             position: absolute;
@@ -18,7 +19,7 @@
             left: 0;
             bottom: 0;
             right: 0;
-            background: rgba(6, 26, 35, 0.72);
+            background: rgba(15, 15, 15, 0.72);
             color: $offwhite;
             padding: 1em;
             opacity: 0;
@@ -27,9 +28,25 @@
                 opacity: 1;
             }
         }
+        &_artists{
+            font-weight: $flight;
+        }
         &_name{
-            font-weight: 800;
+            font-weight: $bold;
             font-size: 1.5rem;
+        }
+        @media only screen and (max-width: 768px){
+            width: 50%;
+            &_content{
+                opacity: 1;
+                background: linear-gradient(rgba(15, 15, 15, 0.83) 0%, transparent 100%);
+                p{
+                    margin: 0;
+                }
+            }
+        }
+        @media only screen and (max-width: 450px){
+            width: 100%;
         }
     }
 }

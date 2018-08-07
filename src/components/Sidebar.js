@@ -11,11 +11,20 @@ class Sidebar extends Component{
             dropdown: false
         }
     }
-    // toggleDropdown(){
-    //     this.setState({
-    //         dropdown: !this.state.dropdown
-    //     })
-    // }
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
+        console.log(document.querySelector('body').clientWidth)
+    }
+    componentWillUnmount(){
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+    handleScroll(event) {
+        let scrollTop = event.srcElement.body.scrollTop;
+        // let height = document.getElementById('myDiv').clientHeight;
+        // this.setState({
+        //     fixed: 'itemTranslate'
+        // });
+    }
     render(){
         return(
             <div className="sidebar">

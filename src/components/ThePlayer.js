@@ -5,6 +5,14 @@ import { connect } from 'react-redux';
 import { playTrack,pauseTrack } from '../actions/player';
 import { getArtists } from "../constants";
 
+const getTime = s => {
+    const time = s / 60;
+    const minutes = Math.floor(time);
+    const seconds = Math.floor((time - minutes) * 60);
+    const secondsString = seconds<10? `0${seconds}` : seconds;
+    return `${minutes}:${secondsString}`;
+}
+
 class ThePlayer extends Component{
     constructor(props){
         super(props);
@@ -37,6 +45,9 @@ class ThePlayer extends Component{
         const jump = pos / total;
         this.setState({progress: jump*100});
         this.player.seekTo(jump);
+    }
+    browsing(pos,total){
+        this.setState({ browsing: pos / total });
     }
     nextTrack(){
         if(!this.state.disableNext){
@@ -85,19 +96,26 @@ class ThePlayer extends Component{
         let artists = getArtists(this.state.track.artists);
         return(
             <div onMouseUp={(e) => { this.setState({ dragged: false }) }} onMouseMove={e => {this.startDrag(e)}} className="player">
-                <div className="player__bar" onClick={e => {this.toSeek(e.clientX,window.innerWidth)}}>
+                <div className="player__bar" onClick={e => { this.toSeek(e.clientX, window.innerWidth) }} onMouseMove={e => { this.browsing(e.clientX, window.innerWidth)}} onMouseOut={e => { this.setState({browsing:false}) }}>
                     <div className="player__played" style={{width: `${this.state.progress}%`}}></div>
+                    {this.state.browsing &&
+                        <div style={{left: `${this.state.browsing*100}%`}} className="player__browse">
+                        <span>{getTime(this.state.browsing*this.state.time)}</span>    
+                        </div>}
                 </div>
                 <div className="player__song">
-                    <span className="player__song_name">{this.state.track.name}</span>
-                    <span> - </span> 
-                    <span className="player__song_artist">
-                        {artists.map((artist,i) => {
-                            return artist.name ? (
-                                <span key={i}>{artist.name}</span>
-                            ):artist
-                        })}
-                    </span>
+                    {this.state.track.album.images && 
+                        <div className="player__song_thumb" style={{ backgroundImage: `url(${this.state.track.album.images[0].url})` }}></div>}
+                    <p className="player__song_info">
+                        <span className="player__song_name">{this.state.track.name}</span>
+                        <span className="player__song_artist">
+                            {artists.map((artist,i) => {
+                                return artist.name ? (
+                                    <span key={i}>{artist.name}</span>
+                                ):artist
+                            })}
+                        </span>
+                    </p>
                 </div>
                 <div className="player__buttons">
                     <a className={`player__btn ${this.state.disablePrev ? 'disabled' : ''}`} onClick={() => { this.prevTrack() }}>
@@ -112,10 +130,12 @@ class ThePlayer extends Component{
                 </div>
                 <ReactPlayer 
                 ref={this.ref} 
-                onProgress={(e)=>{this.setState({progress: e.played*100})}}
+                onProgress={(e)=>{this.setState({progress: e.played*100,time:e.loadedSeconds});}}
                 onEnded={()=>{this.onEnd()}}
                 url={this.state.track.preview_url} 
                 playing={this.state.playing}
+                width="0"
+                height="0"
                 >
                 </ReactPlayer>
             </div>
